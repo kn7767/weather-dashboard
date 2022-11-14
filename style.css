@@ -1,0 +1,61 @@
+.title {
+    text-align: center;
+    background-color:rgb(43, 69, 149);
+    color: white;
+    padding: 15px;
+}
+
+.searcharea {
+    background-color: rgb(246, 246, 246);
+    width: 28%;
+    height: 100vh;
+    float: left;
+    margin: -7px 3px 0px 0px;
+    padding: 10px 5px 5px 5px;
+}
+#location {
+    width: 100%;
+}
+.submit {
+    width: 100%;
+    border: 0px;
+    background-color: royalblue;
+    padding: 5px;
+    margin-top: 10px;
+    color: white;
+    border-radius: 10px;
+}
+.clearhistory {
+    width: 100%;
+    border: 0px;
+    background-color: white;
+    padding: 5px;
+    margin-top: 10px;
+    color: royalblue;
+    border-radius: 10px;
+}
+
+#list {
+    margin-top: 5px;
+    width: 100%;
+    padding: 0px;
+}
+
+.today {
+    float: right;
+    width: 70%;
+    border: 1px solid;
+    border-color: rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+}
+.forecast {
+    float: right;
+    width: 70%;
+    padding-top: 10px;
+}
+
+/* for history */
+.historyInputs {
+    width: 30%;
+}
