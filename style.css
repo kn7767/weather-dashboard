@@ -59,3 +59,44 @@
 .historyInputs {
     width: 30%;
 }
+
+.day1 {
+    float: left;
+    width: 20%;
+    border: 1px solid;
+    border-color: rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+}
+.day2 {
+    float: left;
+    width: 20%;
+    border: 1px solid;
+    border-color: rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+}
+.day3 {
+    float: left;
+    width: 20%;
+    border: 1px solid;
+    border-color: rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+}
+.day4 {
+    float: left;
+    width: 20%;
+    border: 1px solid;
+    border-color: rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+}
+.day5 {
+    float: left;
+    width: 20%;
+    border: 1px solid;
+    border-color: rgb(201, 201, 201);
+    border-radius: 10px;
+    padding: 10px;
+}
