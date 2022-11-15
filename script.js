@@ -34,28 +34,33 @@ function todayWeather (cityName) {
     .then((response) => response.json())
     .then(response => {
         console.log(response)
-        cityEl.innerHTML = response.name
-
+        cityEl.innerHTML = response.name //shows "undefined", added if statement to get rid of it 
+        if (cityName === undefined) {
+            cityEl.innerHTML = "City";
+        }
         tempEl.innerHTML = "Temp: " + response.main.temp + "F";
         windEl.innerHTML = "Wind: " + response.wind.speed + " MPH";
         humidEl.innerHTML = "Humidity: " + response.main.humidity  + "%";
 
-        let weatherPic = response.weather[0].icon;
+        let weatherPic = response.weather[0].icon; //doesn't work above temp/wind/humidity ? 
         currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
         currentPicEl.setAttribute("alt", response.weather[0].description);
+        
+
     })
     //goes under city name; not part of fetch
     var today = moment();
     $('#date').text(today.format('L'));
 
-    //five day
-    let forecastURL =  "https://api.openweathermap.org/data/2.5/forecast?id=" + cityName + "&appid=" + APIKey;
+    //five day section 
+    //url error :(
+    let forecastURL =  "api.openweathermap.org/data/2.5/forecast?id=" + cityName + "&appid=" + APIkey; 
     fetch(forecastURL)
     .then((response) => response.json())
     .then(response => {
         console.log(response)
-        var forecastEl = document.querySelector('.future');
-        // for (i = 0; i < forecastEl; i++) {
+        var forecastEl = document.querySelector('.future'); 
+        for (i = 0; i < forecastEl; i++) {
     //         var forecastIndex = i * 8 + 4;
     //         var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
     //         var forecastDay = forecastDate.getDate();
@@ -66,43 +71,48 @@ function todayWeather (cityName) {
     //         forecastDateEl.innerHTML = forecastMonth + "/" + forecastDay + "/" + forecastYear;
     //         forecastEl[i].append(forecastDateEl);
 
-    //         forecastTempEl = document.createElement("p");
-    //         forecastTempEl.innerHTML = "Temp: " + response.data.list[forecastIndex].main.temp;
-    //         forecastEl[i].append(forecastTempEl);
-    //         forecastHumidEl = document.createElement("p");
-    //         forecastHumidEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
-    //         forecastEl[i].append(forecastHumidEl);
-    //         forecastWindEl = document.createElement("p");
-    //         forecastWindEl.innerHTML = "Wind Speed: " + response.data.list[forecastIndex].wind.speed;
-    //         forecastEl[i].append(forecastWindEl);
-    //     }
+    //commenting out until url works 
+            // forecastTempEl = document.createElement("p");
+            // forecastTempEl.innerHTML = "Temp: " + response.data.list[forecastIndex].main.temp;
+            // forecastEl[i].append(forecastTempEl);
+            // forecastHumidEl = document.createElement("p");
+            // forecastHumidEl.innerHTML = "Humidity: " + response.data.list[forecastIndex].main.humidity + "%";
+            // forecastEl[i].append(forecastHumidEl);
+            // forecastWindEl = document.createElement("p");
+            // forecastWindEl.innerHTML = "Wind Speed: " + response.data.list[forecastIndex].wind.speed;
+            // forecastEl[i].append(forecastWindEl);
+        }
     })
 }
 console.log(localStorage)
 
+//creating search history
 function renderSearchHistory () {
     list.innerHTML = "";
     for(let i = 0; i < searchHistory.length; i++) {
         const historyInput = document.createElement("input")
         historyInput.setAttribute("type", "text")
-        historyInput.setAttribute("readonly", true)
-        historyInput.setAttribute("value", searchHistory[i])
-        historyInput.style.listStyle = "none"
-        historyInput.style.width = "100%"
+        historyInput.setAttribute("readonly", true) //prevents text from being changed 
+        historyInput.setAttribute("value", searchHistory[i]) //gets objects from search history
+        historyInput.style.listStyle = "none" //css
+        historyInput.style.width = "100%" //css
         historyInput.addEventListener("click", function() {
-            todayWeather(historyInput.value)
-        })
-        list.append(historyInput)
+            todayWeather(historyInput.value) 
+        }) //event listener that selects search history on click
+        list.append(historyInput) //creates the search history list 
     }
 }
+
+//searches 
 submitBtn.addEventListener('click', function() {
     const searchedCity = locationInput.value //gets value from input 
     todayWeather(searchedCity) //puts value to todayWeather function
     searchHistory.push(searchedCity) //searchedCity becomes part of searchHistory
     localStorage.setItem("city", JSON.stringify(searchHistory)) //added to local storage
-    renderSearchHistory()
+    renderSearchHistory() //adds to history list
 });
 
+//clears search history 
 clearBtn.addEventListener('click', function() {
     searchHistory = []
     renderSearchHistory()
