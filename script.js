@@ -4,6 +4,7 @@ var clearBtn = document.querySelector('.clearhistory')
 
 //current weather and day
 var currentDay = document.getElementById('currentDay');
+var currentPicEl = document.querySelector(".currentweatherpic");
 var cityEl = document.getElementById('city');
 var tempEl = document.getElementById('temp');
 var windEl = document.getElementById('wind');
@@ -34,22 +35,27 @@ function todayWeather (cityName) {
     .then(response => {
         console.log(response)
         cityEl.innerHTML = response.name
+
         tempEl.innerHTML = "Temp: " + response.main.temp + "F";
         windEl.innerHTML = "Wind: " + response.wind.speed + " MPH";
         humidEl.innerHTML = "Humidity: " + response.main.humidity  + "%";
+
+        let weatherPic = response.weather[0].icon;
+        currentPicEl.setAttribute("src", "https://openweathermap.org/img/wn/" + weatherPic + "@2x.png");
+        currentPicEl.setAttribute("alt", response.weather[0].description);
     })
+    //goes under city name; not part of fetch
     var today = moment();
     $('#date').text(today.format('L'));
 
     //five day
-    // let cityID = response.data.id; 
-    // let forecastURL =  "https://api.openweathermap.org/data/2.5/forecast?id=" + cityID + "&appid=" + APIKey;
-    // fetch(forecastURL)
-    // .then((response) => response.json())
-    // .then(response => {
-    //     console.log(response)
-    //     var forecastEl = document.querySelector('.future');
-    //     for (i = 0; i < forecastEl; i++) {
+    let forecastURL =  "https://api.openweathermap.org/data/2.5/forecast?id=" + cityName + "&appid=" + APIKey;
+    fetch(forecastURL)
+    .then((response) => response.json())
+    .then(response => {
+        console.log(response)
+        var forecastEl = document.querySelector('.future');
+        // for (i = 0; i < forecastEl; i++) {
     //         var forecastIndex = i * 8 + 4;
     //         var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
     //         var forecastDay = forecastDate.getDate();
@@ -70,7 +76,7 @@ function todayWeather (cityName) {
     //         forecastWindEl.innerHTML = "Wind Speed: " + response.data.list[forecastIndex].wind.speed;
     //         forecastEl[i].append(forecastWindEl);
     //     }
-    // })
+    })
 }
 console.log(localStorage)
 
