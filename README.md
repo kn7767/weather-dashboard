@@ -1,22 +1,20 @@
-# weather-dashboard
-module 6 challenge
+# Weather Dashboard
+Module 6
 
-Using the 5 Day Weather Forecast API, you'll notice that you will need to pass in coordinates instead of just a city name. Using the OpenWeatherMap APIs, how could we retrieve geographical coordinates given a city name?
+## Description
+This site allows users to see the weather and a 5 day weather forecast of any given city within the US. It keeps a search history of the cities the user searched for an easy way to go back to a previously viewed city.
 
-You will use localStorage to store any persistent data. 
+## Visuals
+![alt text](http://url/to/sc-weather.png)
 
-## User Story
-AS A traveler
-I WANT to see the weather outlook for multiple cities
-SO THAT I can plan a trip accordingly
+## Installation
+None
 
-## Acceptance Criteria
-GIVEN a weather dashboard with form inputs
-WHEN I search for a city
-THEN I am presented with current and future conditions for that city and that city is added to the search history
-WHEN I view current weather conditions for that city
-THEN I am presented with the city name, the date, an icon representation of weather conditions, the temperature, the humidity, and the the wind speed
-WHEN I view future weather conditions for that city
-THEN I am presented with a 5-day forecast that displays the date, an icon representation of weather conditions, the temperature, the wind speed, and the humidity
-WHEN I click on a city in the search history
-THEN I am again presented with current and future conditions for that city
+## Usage
+Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+
+## License
+None
+
+## Project status
+5 day weather portion needs dates and to delete previous input on a new search. 
