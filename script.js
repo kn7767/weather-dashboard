@@ -74,9 +74,9 @@ function todayWeather (cityName) {
         //day 1 forcast
         let icon1 = response.list[0].weather[0].icon;
         var iconEl1 = document.createElement("img");
-        iconEl1.setAttribute("src", "http://openweathermap.org/img/wn/" + icon1 + "@2x.png");
+        iconEl1.setAttribute("src", "https://openweathermap.org/img/wn/" + icon1 + "@2x.png");
         iconEl1.setAttribute("alt", response.list[0].weather[0].description);
-        forecast1.append(icon1);
+        forecast1.append(iconEl1);
 
         var tempEl1 = document.createElement("p");
         var windEl1 = document.createElement("p");
@@ -94,7 +94,7 @@ function todayWeather (cityName) {
         let icon2 = response.list[1].weather[0].icon;
         iconEl2.setAttribute("src", "https://openweathermap.org/img/wn/" + icon2 + "@2x.png");
         iconEl2.setAttribute("alt", response.list[0].weather[0].description);
-        forecast2.append(icon2);
+        forecast2.append(iconEl2);
 
         var tempEl2 = document.createElement("p");
         var windEl2 = document.createElement("p");
@@ -112,7 +112,7 @@ function todayWeather (cityName) {
         let icon3 = response.list[2].weather[0].icon;
         iconEl3.setAttribute("src", "https://openweathermap.org/img/wn/" + icon3 + "@2x.png");
         iconEl3.setAttribute("alt", response.list[2].weather[0].description);
-        forecast3.append(icon3);
+        forecast3.append(iconEl3);
 
         var tempEl3 = document.createElement("p");
         var windEl3 = document.createElement("p");
@@ -130,7 +130,7 @@ function todayWeather (cityName) {
         let icon4 = response.list[3].weather[0].icon;
         iconEl4.setAttribute("src", "https://openweathermap.org/img/wn/" + icon4 + "@2x.png");
         iconEl4.setAttribute("alt", response.list[3].weather[0].description);
-        forecast4.append(icon4);
+        forecast4.append(iconEl4);
 
         var tempEl4 = document.createElement("p");
         var windEl4 = document.createElement("p");
@@ -149,7 +149,7 @@ function todayWeather (cityName) {
         let icon5 = response.list[4].weather[0].icon;
         iconEl5.setAttribute("src", "https://openweathermap.org/img/wn/" + icon5 + "@2x.png");
         iconEl5.setAttribute("alt", response.list[4].weather[0].description);
-        forecast5.append(icon5);
+        forecast5.append(iconEl5);
 
         var tempEl5 = document.createElement("p");
         var windEl5 = document.createElement("p");
