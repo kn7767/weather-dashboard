@@ -72,6 +72,7 @@ function todayWeather (cityName) {
         var forecast5 = document.querySelector('.day5');
         
         //day 1 forcast
+        forecast1.innerHTML = "";
         let icon1 = response.list[0].weather[0].icon;
         var iconEl1 = document.createElement("img");
         iconEl1.setAttribute("src", "https://openweathermap.org/img/wn/" + icon1 + "@2x.png");
@@ -90,6 +91,7 @@ function todayWeather (cityName) {
         forecast1.append(humidEl1)
         
         //day 2 forecast
+        forecast2.innerHTML = "";
         var iconEl2 = document.createElement("img");
         let icon2 = response.list[1].weather[0].icon;
         iconEl2.setAttribute("src", "https://openweathermap.org/img/wn/" + icon2 + "@2x.png");
@@ -108,6 +110,7 @@ function todayWeather (cityName) {
         forecast2.append(humidEl2)
 
         //day 3 forecast  
+        forecast3.innerHTML = "";
         var iconEl3 = document.createElement("img");
         let icon3 = response.list[2].weather[0].icon;
         iconEl3.setAttribute("src", "https://openweathermap.org/img/wn/" + icon3 + "@2x.png");
@@ -126,6 +129,7 @@ function todayWeather (cityName) {
         forecast3.append(humidEl3)
 
         //day 4
+        forecast4.innerHTML = "";
         var iconEl4 = document.createElement("img");
         let icon4 = response.list[3].weather[0].icon;
         iconEl4.setAttribute("src", "https://openweathermap.org/img/wn/" + icon4 + "@2x.png");
@@ -144,7 +148,7 @@ function todayWeather (cityName) {
         forecast4.append(humidEl4)
 
         //day5
-                
+        forecast5.innerHTML = "";
         var iconEl5 = document.createElement("img");
         let icon5 = response.list[4].weather[0].icon;
         iconEl5.setAttribute("src", "https://openweathermap.org/img/wn/" + icon5 + "@2x.png");
